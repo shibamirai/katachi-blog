@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,11 +14,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'ボウ氏',
+            'email' => 'contact@miraino-katachi.co.jp',
         ]);
+
+        Category::create(['name' => '本校']);
+        Category::create(['name' => '本町第２校']);
+        Category::create(['name' => 'B型']);
+        Category::create(['name' => '四ツ橋校']);
     }
 }
