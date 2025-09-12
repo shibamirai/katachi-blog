@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ config('app.name', 'かたち Blog') }}</title>
+
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+<body>
+  <nav class="px-3 sm:px-6 py-4 md:flex md:justify-between md:items-center">
+    <div>
+      <a href="/">
+        <img class="w-24 md:w-30"
+          src="{{ asset('img/logo.png') }}"
+          alt="大阪就労移行支援 未来のかたち｜プログラミング・IT特化"
+        >
+      </a>
+    </div>
+    <div class="mt-8 md:mt-0 flex items-center">
+      @auth
+      @else
+        <a href="/register"
+            class="text-xs font-bold uppercase {{ request()->is('register') ? 'text-blue-500' : '' }}">
+            アカウント登録
+        </a>
+
+        <a href="/login"
+            class="ml-6 text-xs font-bold uppercase {{ request()->is('login') ? 'text-blue-500' : '' }}">
+            ログイン
+        </a>
+      @endauth
+    </div>
+  </nav>
+
+  {{ $slot }}
+
+  <footer class="bg-blue-400 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-6">
+      <p class="text-2xl font-bold">
+        株式会社かたち
+      </p>
+      <ul class="mt-4 text-sm">
+        <li>〒550-0005</li>
+        <li>大阪市西区西本町1-7-7 CE西本町ビル9階</li>
+        <li>TEL: 06-6626-9983 / FAX: 06-6626-9984</li>
+        <li><a href="https://katachi-corp.jp">https://katachi-corp.jp</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
