@@ -40,11 +40,11 @@
     <h1 class="text-2xl font-bold">
       お知らせ一覧
     </h1>
-    <!-- <div class="bg-gray-100 max-w-xl mt-4 mx-auto rounded-xl px-3 py-2">
+    <div class="bg-gray-100 max-w-xl mt-4 mx-auto rounded-xl px-3 py-2">
       <form method="GET" action="/">
-          @if (request('category'))
+          <!-- @if (request('category'))
               <input type="hidden" name="category" value="{{ request('category') }}">
-          @endif
+          @endif -->
 
           <input type="text"
                   name="search"
@@ -53,7 +53,7 @@
                   value="{{ request('search') }}"
           >
       </form>
-    </div> -->
+    </div>
   </header>
 
   <main class="max-w-6xl mx-auto my-6">
