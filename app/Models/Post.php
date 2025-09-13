@@ -11,11 +11,17 @@ class Post extends Model
 
     protected $with = ['category'];
 
-    public function scopeFilter($query, ?String $search)
+    public function scopeFilter($query, array $filters)
     {
-        $query->when($search ?? false, fn($query, $search) =>
+        $query->when($filters['search'] ?? false, fn($query, $search) =>
             $query->where('title', 'like', '%' . $search . '%')
                 ->orWhere('body', 'like', '%' . $search . '%')
+        );
+
+        $query->when($filters['category'] ?? false, fn($query, $category) =>
+            $query->whereHas('category', fn($query) =>
+                $query->where('id', $category)
+            )
         );
     }
 
