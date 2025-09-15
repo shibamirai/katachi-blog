@@ -4,7 +4,7 @@
   <div class="py-6 px-4 h-full flex flex-col">
     <a href="/posts/{{ $post->slug }}">
       <div>
-        <img src="https://miraino-katachi.co.jp/wp-content/uploads/2024/04/l_1945ba85-a2b9-4574-b9aa-3ac67970eafc.webp" alt="ブログ画像">
+        <img src="{{ isset($post->thumbnail) ? asset('storage/' . $post->thumbnail) : asset('img/logo.png') }}" alt="ブログ画像">
       </div>
       <h1 class="mt-2 font-bold line-clamp-1">
         {{ $post->title }}
