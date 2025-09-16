@@ -23,15 +23,34 @@
     </div>
     <div class="mt-4 md:mt-0 flex items-center">
       @auth
+        <x-dropdown>
+          <x-slot name="trigger">
+            <button class="text-sm font-bold">
+              ようこそ {{ auth()->user()->name }}
+            </button>
+          </x-slot>
+
+          <x-dropdown-item
+            href="#"
+            x-data="{}"
+            @click.prevent="document.querySelector('#logout-form').submit()"
+          >
+            ログアウト
+          </x-dropdown-item>
+
+          <form id="logout-form" method="POST" action="/logout" class="hidden">
+            @csrf
+          </form>
+        </x-dropdown>
       @else
         <a href="/register"
-            class="text-xs font-bold uppercase {{ request()->is('register') ? 'text-blue-500' : '' }}">
-            アカウント登録
+          class="text-sm font-bold uppercase {{ request()->is('register') ? 'text-blue-500' : '' }}">
+          アカウント登録
         </a>
 
         <a href="/login"
-            class="ml-6 text-xs font-bold uppercase {{ request()->is('login') ? 'text-blue-500' : '' }}">
-            ログイン
+          class="ml-6 text-sm font-bold uppercase {{ request()->is('login') ? 'text-blue-500' : '' }}">
+          ログイン
         </a>
       @endauth
     </div>
@@ -52,5 +71,7 @@
       </ul>
     </div>
   </footer>
+
+  <x-flash/>
 </body>
 </html>
