@@ -9,9 +9,9 @@
     </div>
     <div class="relative md:inline-flex bg-gray-100 rounded-xl px-3 py-2">
       <form method="GET" action="/">
-          <!-- @if (request('category'))
+          @if (request('category'))
               <input type="hidden" name="category" value="{{ request('category') }}">
-          @endif -->
+          @endif
           <input type="text"
                   name="search"
                   placeholder="検索"
