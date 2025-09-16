@@ -1,4 +1,4 @@
-<header class="bg-blue-100 px-3 py-15 text-center">
+<header class="px-4 py-15 bg-blue-100 text-center">
   <h1 class="text-2xl font-bold">
     お知らせ一覧
   </h1>

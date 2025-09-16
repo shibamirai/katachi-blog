@@ -1,10 +1,10 @@
 <x-layout>
   @include ('posts.__header')
 
-  <main class="max-w-6xl mx-auto my-6">
+  <main class="px-4 py-4 max-w-6xl mx-auto">
     <x-posts-grid :posts="$posts" />
 
-    <div class="px-4">
+    <div>
       {{ $posts->links() }}
     </div>
   </main>

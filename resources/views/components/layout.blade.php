@@ -12,7 +12,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-  <nav class="px-3 sm:px-6 py-4 md:flex md:justify-between md:items-center">
+  <nav class="px-4 py-4 md:flex md:justify-between md:items-center">
     <div>
       <a href="/">
         <img class="w-24 md:w-30"
@@ -21,7 +21,7 @@
         >
       </a>
     </div>
-    <div class="mt-8 md:mt-0 flex items-center">
+    <div class="mt-4 md:mt-0 flex items-center">
       @auth
       @else
         <a href="/register"
@@ -39,8 +39,8 @@
 
   {{ $slot }}
 
-  <footer class="bg-blue-400 text-white">
-    <div class="max-w-6xl mx-auto px-4 py-6">
+  <footer class="px-4 py-6 bg-blue-400 text-white">
+    <div class="max-w-6xl mx-auto">
       <p class="text-2xl font-bold">
         株式会社かたち
       </p>
