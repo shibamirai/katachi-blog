@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::factory()->create([
+            'is_admin' => true,
             'name' => 'ボウ氏',
             'email' => 'contact@miraino-katachi.co.jp',
         ]);
