@@ -26,7 +26,7 @@
         <x-dropdown>
           <x-slot name="trigger">
             <button class="text-sm font-bold">
-              ようこそ {{ auth()->user()->name }}
+              ようこそ {{ auth()->user()->name }} さん
             </button>
           </x-slot>
 
