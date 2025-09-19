@@ -30,6 +30,15 @@
             </button>
           </x-slot>
 
+          @admin
+            <x-dropdown-item
+              href="/admin/posts/create"
+              :active="request()->is('admin/posts/create')"
+            >
+              新規投稿
+            </x-dropdown-item>
+          @endadmin
+
           <x-dropdown-item
             href="#"
             x-data="{}"
