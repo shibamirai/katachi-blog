@@ -3,5 +3,5 @@
 <label class="block mb-2 font-bold text-xs text-gray-700"
        for="{{ $name }}"
 >
-    {{ $name }}
+    {!! __('messages.' . $name) !!}
 </label>

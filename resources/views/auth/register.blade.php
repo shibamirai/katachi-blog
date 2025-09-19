@@ -6,10 +6,10 @@
       <form method="POST" action="/register" class="mt-10">
           @csrf
 
-          <x-form.input name="name" label="名前" required />
-          <x-form.input name="email" type="email" label="メールアドレス" required />
-          <x-form.input name="password" type="password" label="パスワード" required />
-          <x-form.input name="password_confirmation" type="password" label="パスワード確認" required />
+          <x-form.input name="name" required />
+          <x-form.input name="email" type="email" required />
+          <x-form.input name="password" type="password" required />
+          <x-form.input name="password_confirmation" type="password" required />
 
           <div class="text-center">
             <x-form.button class="mx-auto">登録</x-form.button>

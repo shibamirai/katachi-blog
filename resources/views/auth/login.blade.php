@@ -6,8 +6,8 @@
       <form method="POST" action="/login" class="mt-10">
           @csrf
 
-          <x-form.input name="email" type="email" label="メールアドレス" required />
-          <x-form.input name="password" type="password" label="パスワード" required />
+          <x-form.input name="email" type="email" required />
+          <x-form.input name="password" type="password" required />
 
           <div class="text-center">
             <x-form.button class="mx-auto">ログイン</x-form.button>
