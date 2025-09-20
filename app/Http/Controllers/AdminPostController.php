@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AdminPostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminPostController extends Controller
 {
     public function index()
     {
-        //
+        return view('admin.posts.index', [
+            'posts' => Post::where('user_id', Auth::user()->id)->get()
+        ]);
     }
 
     public function create()
