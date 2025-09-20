@@ -56,8 +56,12 @@ class AdminPostController extends Controller
         return back()->with('success', '更新しました！');
     }
 
-    public function destroy(string $id)
+    public function destroy(Post $post)
     {
-        //
+        Gate::authorize('delete', $post);
+
+        $post->delete();
+
+        return back()->with('success', '削除しました！');
     }
 }
