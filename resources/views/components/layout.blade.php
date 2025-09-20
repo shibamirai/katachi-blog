@@ -35,7 +35,7 @@
               href="/admin/posts"
               :active="request()->is('admin/posts')"
             >
-              ダッシュボード
+              投稿記事一覧
             </x-dropdown-item>
             <x-dropdown-item
               href="/admin/posts/create"

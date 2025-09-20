@@ -6,13 +6,14 @@ use App\Http\Requests\AdminPostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class AdminPostController extends Controller
 {
     public function index()
     {
         return view('admin.posts.index', [
-            'posts' => Post::where('user_id', Auth::user()->id)->get()
+            'posts' => Post::where('user_id', Auth::user()->id)->latest()->paginate(10)
         ]);
     }
 
@@ -34,19 +35,25 @@ class AdminPostController extends Controller
         return redirect('/');
     }
 
-    public function show(string $id)
+    public function edit(Post $post)
     {
-        //
+        Gate::authorize('update', $post);
+  
+        return view('admin.posts.edit', ['post' => $post]);
     }
 
-    public function edit(string $id)
+    public function update(AdminPostRequest $request, Post $post)
     {
-        //
-    }
+        Gate::authorize('update', $post);
 
-    public function update(Request $request, string $id)
-    {
-        //
+        $attributes = $request->validated();
+        if ($attributes['thumbnail'] ?? false) {
+            $attributes['thumbnail'] = request()->file('thumbnail')?->store('thumbnails', 'public');
+        }
+        
+        $post->update($attributes);
+
+        return back()->with('success', '更新しました！');
     }
 
     public function destroy(string $id)

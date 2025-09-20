@@ -42,6 +42,10 @@
                 </tbody>
               </table>
             </div>
+
+            <div>
+              {{ $posts->links() }}
+            </div>
           @endif
         </div>
       </div>
