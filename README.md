@@ -11,8 +11,8 @@
 1. 任意のフォルダでプロジェクトをクローンし、composer および npm でプロジェクトに必要なPHPライブラリをインストールする
 
     ```
-    > git clone https://github.com/shibamirai/job-finders.git
-    > cd job-finders
+    > git clone https://github.com/shibamirai/katachi-blog.git
+    > cd katachi-blog
     > composer install
     > npm install
     ```
