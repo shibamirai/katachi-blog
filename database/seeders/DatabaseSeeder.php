@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,8 +17,9 @@ class DatabaseSeeder extends Seeder
     {
         User::factory()->create([
             'is_admin' => true,
-            'name' => 'ボウ氏',
-            'email' => 'contact@miraino-katachi.co.jp',
+            'name' => env('MANAGER_NAME'),
+            'email' => env('MANAGER_EMAIL'),
+            'password' => Hash::make(env('MANAGER_PASSWORD')),
         ]);
 
         Category::create(['name' => '本校']);
