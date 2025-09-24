@@ -11,6 +11,10 @@ Route::get('/', [PostController::class, 'index'])->name('home');
 
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
 Route::post('posts/{post:slug}/comments', [CommentController::class, 'store'])->middleware('auth');
+Route::middleware('can:edit,comment')->group(function () {
+    Route::patch('comments/{comment}', [CommentController::class, 'update']);
+    Route::delete('comments/{comment}', [CommentController::class, 'destroy']);
+});
 
 Route::controller(LoginController::class)->group(function () {
     Route::get('login', 'create')->middleware('guest');

@@ -6,6 +6,7 @@ use App\Http\Requests\StoreCommentRequest;
 use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class CommentController extends Controller
 {
@@ -19,5 +20,20 @@ class CommentController extends Controller
         ]);
         
         return back();
+    }
+
+    public function update(StoreCommentRequest $request, Comment $comment)
+    {
+        $attributes = $request->validated();
+        
+        $comment->update($attributes);
+
+        return back()->with('success', 'コメントを修正しました！');
+    }
+
+    public function destroy(Comment $comment)
+    {
+        $comment->delete();
+        return back()->with('success', 'コメントを削除しました！');
     }
 }
